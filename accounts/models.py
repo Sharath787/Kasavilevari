@@ -48,6 +48,14 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return f"{self.email} ({self.role})"
+    
+    class Meta:
+        permissions = [
+            ('can_request_pickup', 'can request waste pickup'),
+            ('can_collect_waste', 'can collect waste'),
+            ('can_verify_dump', 'can verify waste dump'),
+            ('can_manage_system', 'can manage system settings'),
+        ]
 
 
 # Create your models here.
