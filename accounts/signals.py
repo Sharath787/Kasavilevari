@@ -5,13 +5,9 @@ from django.dispatch import receiver
 from django.apps import apps
 from accounts.models import User
 
-print("✅ accounts.signals imported")
-
-
 @receiver(post_migrate)
 def create_default_groups(sender, **Kwargs):
-    if sender.name != 'accounts':
-        print(f"Skipping group creation for {sender.name}") 
+    if sender.name != 'accounts': 
         return
 
     collector_group, _ = Group.objects.get_or_create(name='collector')

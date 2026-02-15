@@ -6,5 +6,4 @@ class AccountsConfig(AppConfig):
     name = 'accounts'
 
     def ready(self):
-        print("Accounts app is ready, importing signals...")
         import accounts.signals
